@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Mahajan - NLP Researcher</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2a6496;
+            padding-bottom: 20px;
+        }
+        .header-content h1 {
+            margin-bottom: 5px;
+            color: #2a6496;
+        }
+        .header-content p {
+            margin-top: 0;
+            color: #666;
+            font-size: 1.1em;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #666;
+        }
+        .tab-container {
+            margin-bottom: 20px;
+        }
+        .tabs {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+        .tab:hover {
+            background-color: #ddd;
+        }
+        .tab.active {
+            background-color: #2a6496;
+            color: white;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            animation: fadeIn 0.5s;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .contact-icon {
+            font-size: 1.2em;
+        }
+        h2 {
+            color: #2a6496;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .publication, .project {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: transform 0.3s ease;
+        }
+        .publication:hover, .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .project h3 {
+            margin-top: 0;
+        }
+        .project a {
+            color: #2a6496;
+            text-decoration: none;
+        }
+        .project a:hover {
+            text-decoration: underline;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .skill-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        .skill-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skill-list li {
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            background-color: #e9f5ff;
+            border-radius: 15px;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 8px;
+        }
+        .education-item, .experience-item {
+            margin-bottom: 20px;
+        }
+        .duration {
+            font-style: italic;
+            color: #666;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2a6496;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .scroll-top:hover {
+            background-color: #1e4976;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-image {
+                margin-bottom: 20px;
+            }
+            .tabs {
+                flex-wrap: wrap;
+            }
+            .tab {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="profile-image">
+            Profile Photo
+        </div>
+        <div class="header-content">
+            <h1>Yash Mahajan</h1>
+            <p>PhD candidate in Computer Science at Auburn University</p>
+        </div>
+    </div>
+
+    <div class="tab-container">
+        <ul class="tabs">
+            <li class="tab active" onclick="openTab('about')">About Me</li>
+            <li class="tab" onclick="openTab('publications')">Publications</li>
+            <li class="tab" onclick="openTab('projects')">Projects</li>
+            <li class="tab" onclick="openTab('skills')">Skills</li>
+            <li class="tab" onclick="openTab('education')">Education & Experience</li>
+            <li class="tab" onclick="openTab('contact')">Contact</li>
+        </ul>
+
+        <div id="about" class="tab-content active">
+            <h2>About Me</h2>
+            <p>PhD candidate in Computer Science at Auburn University, expected to graduate by Summer 2025, specializing in NLP, LLM evaluation, and AI interpretability. My research focuses on understanding language model semantic spaces and developing robust evaluation frameworks. Beyond academia, I enjoy applying cutting-edge AI research to real-world problems and building innovative applications as a hobby. Driven by curiosity and impact, I strive to bridge the gap between academic research and industry innovation in AI.</p>
+            
+            <h2>Research Interests</h2>
+            <ul>
+                <li>Natural Language Processing (NLP)</li>
+                <li>Explainable AI (XAI)</li>
+                <li>Large Language Models (LLMs)</li>
+                <li>AI Evaluation & Interpretability</li>
+            </ul>
+            
+            <h2>Academic Highlights</h2>
+            <ul>
+                <li>Selected for oral presentation at SouthNLP'24 (top 7% of submissions)</li>
+                <li>Received Travel Fellowship from 100+ Strong Women, Auburn</li>
+                <li>Awarded Graduate Teaching Assistantship by Auburn University</li>
+                <li>Led ML/AI teams while mentoring engineering students</li>
+            </ul>
+        </div>
+
+        <div id="publications" class="tab-content">
+            <h2>Publications</h2>
+            
+            <div class="publication">
+                <h3>Revisiting Word Embeddings in the LLM Era (2025)</h3>
+                <p>Under review in ARR (Feb 2025 cycle)</p>
+                <p><strong>Authors:</strong> Yash Mahajan, Matthew Freestone, Sathyanarayanan N. Aakur and Santu Karmaker</p>
+            </div>
+            
+            <div class="publication">
+                <h3>Set-Theoretic Compositionality of Sentence Embeddings</h3>
+                <p>Under review in ARR (Feb 2025 cycle)</p>
+                <p><strong>Authors:</strong> Naman Bansal, Yash Mahajan, Sanjeev Kumar Sinha, and Santu Karmaker</p>
+            </div>
+            
+            <div class="publication">
+                <h3>Who Truly Contributes? Redefining Wikipedia's Contribution Metrics for Fairness</h3>
+                <p>Under review in ARR (April 2025 cycle)</p>
+                <p><strong>Authors:</strong> Yash Mahajan, Santu Karmaker</p>
+            </div>
+            
+            <div class="publication">
+                <h3>LLMs as Meta-Reviewers' Assistants: A Case Study</h3>
+                <p>In Proceedings of NACL'25</p>
+                <p><strong>Authors:</strong> Eftekhar Hossain, Sanjeev Kumar Sinha, Naman Bansal, Alex Knipper, Souvika Sarkar, John Salvador, Yash Mahajan et al.</p>
+            </div>
+            
+            <div class="publication">
+                <h3>ALIGN-SIM: A Task-Free Test Bed for Evaluating and Interpreting Sentence Embeddings through Semantic Similarity Alignment</h3>
+                <p>In Findings of EMNLP 2024</p>
+                <p><strong>Authors:</strong> Yash Mahajan, Naman Bansal, Eduardo Blanco, and Santu Karmaker</p>
+            </div>
+            
+            <div class="publication">
+                <h3>Ad-hoc monitoring of covid-19 global research trends for well-informed policy making</h3>
+                <p>ACM Transactions on Intelligent Systems and Technology, 2023</p>
+                <p><strong>Authors:</strong> Sarkar, S., Bijoy, B.S., Saba, S.J., Feng, D., Mahajan, Y., Amin, M.R., Islam, S.R. and Karmaker, S.K.</p>
+            </div>
+            
+            <div class="publication">
+                <h3>Data-Driven Estimation of Effectiveness of COVID-19 Non-pharmaceutical Intervention Policies</h3>
+                <p>IEEE International Conference on Big Data, 2022</p>
+                <p><strong>Authors:</strong> Mahajan, Y, S. R. Islam, M. R. Amin and S. K. Karmaker Santu</p>
+            </div>
+        </div>
+
+        <div id="projects" class="tab-content">
+            <h2>Featured Projects</h2>
+            
+            <div class="project">
+                <h3><a href="https://github.com/yzm1205/smart-resume-ai" target="_blank">SmartResumeAI: AI-Powered Resume Tailoring Assistant</a></h3>
+                <ul>
+                    <li>Developed an AI-powered resume optimization assistant leveraging GPT-4-turbo and LangChain</li>
+                    <li>Implemented vector-based job matching using ChromaDB and LangChain VectorDB</li>
+                    <li>Built an interactive Streamlit interface for resume modifications and ATS-friendly document generation</li>
+                </ul>
+            </div>
+            
+            <div class="project">
+                <h3><a href="https://github.com/yzm1205/shard-any-llms" target="_blank">Shard-Any-LLMs</a></h3>
+                <ul>
+                    <li>Optimized LLM deployment through model sharding across multiple GPUs</li>
+                    <li>Developed an automated end-to-end model sharding workflow</li>
+                    <li>Integrated with Hugging Face Transformers for seamless model loading</li>
+                </ul>
+            </div>
+            
+            <div class="project">
+                <h3>Negation-Aware Sentence Embedding Model</h3>
+                <ul>
+                    <li>Developed transformer-based negation-aware sentence encoder</li>
+                    <li>Designed dual-stage fine-tuning with BERT and Siamese network architecture</li>
+                    <li>Demonstrated enhanced performance on SentEval benchmarks</li>
+                </ul>
+            </div>
+            
+            <div class="project">
+                <h3>Adversarial Simulations of Object Detection Algorithms</h3>
+                <ul>
+                    <li>Investigated vulnerabilities in YOLOv4 and Faster-RCNN through adversarial testing</li>
+                    <li>Discovered non-local disruptions in detection performance</li>
+                    <li>Conducted comparative analysis showing Faster-RCNN's superior robustness</li>
+                </ul>
+            </div>
+            
+            <div class="project">
+                <h3>Risk-Averse Autonomous Driving</h3>
+                <ul>
+                    <li>Implemented MVPI framework for risk-averse reinforcement learning</li>
+                    <li>Optimized various policy-based learning methods</li>
+                    <li>Conducted large-scale off-policy experiments for improved adaptability</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="skills" class="tab-content">
+            <h2>Technical Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>MATLAB</li>
+                        <li>Bash</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>ML/Data Libraries</h3>
+                    <ul class="skill-list">
+                        <li>PyTorch</li>
+                        <li>scikit-learn</li>
+                        <li>HuggingFace</li>
+                        <li>scikit</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul class="skill-list">
+                        <li>Git</li>
+                        <li>tmux</li>
+                        <li>EDA</li>
+                        <li>Docker</li>
+                        <li>Tableau</li>
+                        <li>PowerBI</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <ul class="skill-list">
+                        <li>Web scraping</li>
+                        <li>LaTeX</li>
+                        <li>Prompt engineering</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Operating Systems</h3>
+                    <ul class="skill-list">
