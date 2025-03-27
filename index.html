@@ -373,3 +373,134 @@
                 <div class="skill-category">
                     <h3>Operating Systems</h3>
                     <ul class="skill-list">
+                        <li>Linux</li>
+                        <li>Windows</li>
+                        <li>macOS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="education" class="tab-content">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3>Auburn University, Alabama</h3>
+                <p>PhD in Computer Science</p>
+                <p class="duration">2022 - Present</p>
+                <p>Focus: Natural Language Processing, LLM Evaluation, AI Interpretability</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Lovely Professional University, India</h3>
+                <p>B.Tech in Computer Science and Engineering</p>
+                <p class="duration">2015 - 2019</p>
+                <p>Graduated with Honors</p>
+            </div>
+            
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Graduate Research Assistant</h3>
+                <p>Auburn University</p>
+                <p class="duration">2022 - Present</p>
+                <ul>
+                    <li>Leading research on LLM evaluation frameworks</li>
+                    <li>Developing interpretability methods for transformer-based models</li>
+                    <li>Publishing research in top NLP conferences and journals</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Software Development Engineer</h3>
+                <p>Accenture, India</p>
+                <p class="duration">2019 - 2022</p>
+                <ul>
+                    <li>Developed ML-based solutions for healthcare and retail domains</li>
+                    <li>Led a team of 5 engineers on multiple client projects</li>
+                    <li>Created end-to-end NLP workflows for document processing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="contact" class="tab-content">
+            <h2>Contact Information</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>yzm0123@auburn.edu</span>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-icon">🔗</span>
+                    <a href="https://linkedin.com/in/yashmahajan" target="_blank">LinkedIn</a>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-icon">🐙</span>
+                    <a href="https://github.com/yzm1205" target="_blank">GitHub</a>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="contact-icon">📝</span>
+                    <a href="https://scholar.google.com/citations?user=yourID" target="_blank">Google Scholar</a>
+                </div>
+            </div>
+            
+            <h2>Address</h2>
+            <p>Computer Science and Software Engineering Department<br>
+            Auburn University<br>
+            Auburn, AL 36849, USA</p>
+        </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTopBtn">↑</button>
+
+    <!-- JavaScript for tab switching and scroll-to-top functionality -->
+    <script>
+        // Tab switching functionality
+        function openTab(tabName) {
+            // Hide all tab content
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            
+            // Remove active class from all tabs
+            const tabs = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab
+            const activeTabElements = document.querySelectorAll('.tab[onclick="openTab(\'' + tabName + '\')"]');
+            for (let i = 0; i < activeTabElements.length; i++) {
+                activeTabElements[i].classList.add('active');
+            }
+        }
+
+        // Scroll to top button functionality
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        // Show button when user scrolls down 300px from the top
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        };
+        
+        // Scroll to top when button is clicked
+        scrollTopBtn.addEventListener('click', function() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        });
+    </script>
+</body>
+</html>
